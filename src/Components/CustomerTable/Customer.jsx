@@ -29,15 +29,15 @@ export default function Customer() {
 async function getAllCustomers(){
     let response = await axios.get(`https://fatma-66.github.io/customer-transaction/db.json`)
     .then((response)=> response).catch((error)=>error)
-    setcustomer(response.data)
-   console.log(response.data);
+    setcustomer(response.data.customers)
+   console.log(response.data.customers);
 }
 
 
 async function getAllTransaction(){
     await axios.get('https://fatma-66.github.io/customer-transaction/db.json').then(response => {
-        settransactions(response.data);
-        console.log(response.data);
+        settransactions(response.data.transactions);
+        console.log(response.data.transactions);
       });
 }
 
@@ -117,7 +117,7 @@ async function getAllTransaction(){
      
 
 
-<div className='py-11 mt-10 '>
+<div className='py-11 mt-12 '>
 <form className='flex gap-4'>
   <label htmlFor="simple-search" className="sr-only">Search</label>
   <div className="relative w-full mb-10">

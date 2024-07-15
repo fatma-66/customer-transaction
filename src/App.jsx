@@ -10,7 +10,7 @@ function App() {
 
   return (
     <>
-    <div  className='fixed top-0 left-0 right-0  back z-50 py-4'>
+    <div  className='fixed top-0 left-0 right-0  back z-50 py-6'>
       <h1 className='text-amber-950 opacity-75 font-bold'>Customer Transactions</h1>
     </div>
      <Customer/>
