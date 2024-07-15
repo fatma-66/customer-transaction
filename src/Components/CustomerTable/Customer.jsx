@@ -27,7 +27,7 @@ export default function Customer() {
 
 
 async function getAllCustomers(){
-    let response = await axios.get(`http://localhost:5000/customers`)
+    let response = await axios.get(`https://fatma-66.github.io/customer-transaction/db.json`)
     .then((response)=> response).catch((error)=>error)
     setcustomer(response.data)
    console.log(response.data);
@@ -35,7 +35,7 @@ async function getAllCustomers(){
 
 
 async function getAllTransaction(){
-   await   axios.get('http://localhost:5000/transactions').then(response => {
+    await axios.get('https://fatma-66.github.io/customer-transaction/db.json').then(response => {
         settransactions(response.data);
         console.log(response.data);
       });
@@ -77,7 +77,7 @@ async function getAllTransaction(){
 
 
 
-  const selectedCustomerTransactions = transactions.filter(transaction => transaction.customer_id == (selectedCustomer ? selectedCustomer.id : null));
+  const selectedCustomerTransactions = transactions?.filter(transaction => transaction.customer_id == (selectedCustomer ? selectedCustomer.id : null));
 
   const data = {
     labels: selectedCustomerTransactions.map(transaction => transaction.date),
@@ -198,7 +198,7 @@ async function getAllTransaction(){
                         </thead>
                         <tbody>
                             {
-                                 transactions.filter(transaction => transaction.customer_id == customer.id)
+                                 transactions?.filter(transaction => transaction.customer_id == customer.id)
                                  .map(trans => (
                                    <tr key={trans.id} className="bg-white">
                                      <td className="px-6 py-4 text-black">{trans.amount}</td>
